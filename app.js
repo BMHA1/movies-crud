@@ -1,7 +1,7 @@
-const { Router } = require('express')
-const express = require ('express')
-const mongoose = require ('mongoose')
-const app = express()
+const { Router } = require('express');
+const express = require ('express');
+const mongoose = require ('mongoose');
+const app = express();
 const jwt = require('jsonwebtoken');
 const routingMovie = require('./components/movie/router.js')
 const routingUser = require('./components/user/router.js')
@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost:27017/movies',{
 app.use(express.json())
 
 app.use('/api/movie/', routingMovie)
-app.use('/api/movie/users/', routingUser)
+app.use('/api/user/', routingUser)
 
 app.listen(3000, () => console.log('Servidor levantado en 3000.'))
 

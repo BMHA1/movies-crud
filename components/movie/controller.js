@@ -1,13 +1,21 @@
 const Movie = require('./model');
 
 module.exports.getMovie = async (req, res) => {
-    const data = await Movie.find({_id: req.param.id});
+    const data = await Movie.find({_id: req.param.id})
+}
+
+module.exports.getMovieCollection = async (req, res) => {
+    await res.json({Movie})
 }
 
 module.exports.createMovie = async (req, res) => {
     const movie = new Movie(req.body);
     await movie.save();
     res.json(movie);
+}
+
+module.exports.deleteMovie = async (req, res) => {
+    
 }
 
 //module.exports.get("/movie/:id", (req, res) => res.json({movie : movie[req.params.id]}))

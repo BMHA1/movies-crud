@@ -7,5 +7,5 @@ module.exports.getUser = async (req, res) => {
 module.exports.createUser = async (req, res) => {
     const user = new User(req.body);
     await user.save();
-    res.json(movie);
+    res.json(user);
 }
