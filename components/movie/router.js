@@ -3,8 +3,8 @@ const controller = require ('./controller.js');
 
 router.post(('/'), controller.createMovie)
 router.get(('/search'), controller.getMovieCollection)
-router.get(('/search/:title'), controller.getMovieByTitle)
-router.get(('/search/:_id'), controller.getMovieById)
-// router.delete(('/'), controller.deleteMovie)
+router.get(('/search/bytitle/:title'), controller.getMovieByTitle)
+router.get(('/search/byobjectid/:_id'), controller.getMovieById)
+// router.delete(('/delete/:_id'), controller.deleteMovie)
 
 module.exports = router;

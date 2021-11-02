@@ -11,7 +11,8 @@ module.exports.createUser = async (req, res) => {
 // Método para buscar un usuario por ID.
 
 module.exports.getUserById = async (req, res) => {
-    const data = await User.find({_id: req.param.id});
+    const user = await User.find({_id: req.param.id});
+    res.json(user);
 }
 
 // LOGIN: Buscar el usuario por ID, comparar TOKEN y devolver si es incorrecto.

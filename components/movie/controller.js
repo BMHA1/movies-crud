@@ -16,13 +16,14 @@ module.exports.getMovieCollection = (req, res) => res.json(Movie);
 
 module.exports.getMovieByTitle = (req, res) => {
     const movie = new Movie(req.param.title);
-    res.json(movie)
+    res.json(movie);
     }
 
 // Método para buscar película por ID.
 
 module.exports.getMovieById = async (req, res) => {
-    const data = await Movie.find({_id: req.param.ObjectID})
+    const movie = await Movie.find({_id: req.param.ObjectID})
+    res.json(movie)
 }
 
 // Método para borrar películas.
