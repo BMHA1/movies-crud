@@ -84,6 +84,14 @@ module.exports.deleteMovie = async (req, res) => {
 
 ```
 
+```javascript
+
+module.exports.modifyMovie = async (req, res) => {
+    const movie = await Movie.findByIdAndUpdate({_id: req.params.id}, req.body)
+    res.json({movie : Movie})
+}
+
+```
 
 ### VISTA EN POSTMAN
 

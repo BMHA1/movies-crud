@@ -42,3 +42,10 @@ module.exports.deleteMovie = async (req, res) => {
     const movie = await Movie.findByIdAndDelete({_id: req.params.id})
     res.json({movie : Movie})
 }
+
+// Método para modificar un valor de películas a través de una búsqueda por ID.
+
+module.exports.modifyMovie = async (req, res) => {
+    const movie = await Movie.findByIdAndUpdate({_id: req.params.id}, req.body)
+    res.json({movie : Movie})
+}
