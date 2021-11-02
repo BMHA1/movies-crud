@@ -29,22 +29,13 @@ module.exports.getMovieByTitle = async (req, res) => {
 
 // Método para buscar película por ID.
 
-module.exports.getMovieById = async (req, res) => {
-    const query = {}
-    if(req.query.id)query.id = req.query.id;
-    const movie = await Movie.findById(query)
+module.exports.getMovieById = async (req, res) => {    const movie = await Movie.findById({_id: req.params.id})
     res.json(movie)
 }
 
 // Método para borrar películas.
 
-module.exports.deleteMovie = async (req, res) => {
-        const query = {}
-        if(req.query.title)query.title = req.query.title;
-        await movie.splice(query, 1)
-        res.json({movie : Movie})
-}
-
-
-// movieController.
-// })
+// module.exports.deleteMovie = async (req, res) => {
+//         await movie.splice({req.query.title}, 1)
+//         res.json({movie : Movie})
+// }

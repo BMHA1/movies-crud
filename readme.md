@@ -19,3 +19,15 @@ Ambas contienen su propia carpeta de controller, model y router, para así ajust
 - Express
 - MongoDB
 - Mongoose
+
+### HOW IT WORKS (CÓMO FUNCIONA)
+
+```javascript
+
+module.exports.createMovie = async (req, res) => {
+    const movie = new Movie(req.body);
+    await movie.save();
+    res.json(movie);
+}
+
+```
