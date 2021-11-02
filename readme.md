@@ -39,18 +39,50 @@ module.exports.createMovie = async (req, res) => {
 
 Para las búsquedas, tenemos en ambos una búsqueda general y una búsqueda por ID. En ambos, también podemos buscar por diferentes valores.
 
-En las búsquedas se usan los RegEx para no limitar al valor exacto de las claves dichas búsquedas.
-
 ```javascript
 
-module.exports.createMovie = async (req, res) => {
-    const movie = new Movie(req.body);
-    await movie.save();
+module.exports.getMovieCollection = async (req, res) => {
+    const movie = await Movie.find({});
     res.json(movie);
 }
 
 ```
+Para búsquedas por cualquier tipo de Clave he usado el siguiente código:
 
+```javascript
+
+module.exports.getMovieByKey = async (req, res) => {
+    const query = {};
+        if(req.query.title)query.title = req.query.title;
+        if(req.query.director)query.director = req.query.director;
+        if(req.query.genre)query.genre = req.query.genre;
+        if(req.query.year)query.year = req.query.year;    const movie = await Movie.find(query);
+    res.json(movie);
+    }
+
+```
+
+Y para búsquedas exactas por ID he procedido a utilizar el método findById propio de Mongoose.
+
+```javascript
+
+module.exports.getMovieById = async (req, res) => {
+    const movie = await Movie.findById({_id: req.params.id})
+    res.json(movie)
+}
+
+```
+
+Otros dos métodos propios de Mongoose que he usado han sido findyIdAndDelete() y findByIdAndUpdate(). El primero para buscar por ID y borrar el Documento que corresponda, el segundo, hace lo mismo pero en lugar de borrar, cambia el parámetro que le indiquemos.
+
+```javascript
+
+module.exports.deleteMovie = async (req, res) => {
+    const movie = await Movie.findByIdAndDelete({_id: req.params.id})
+    res.json({movie : Movie})
+}
+
+```
 
 
 ### VISTA EN POSTMAN

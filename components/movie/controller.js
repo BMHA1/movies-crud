@@ -24,7 +24,8 @@ module.exports.getMovieByKey = async (req, res) => {
         if(req.query.title)query.title = req.query.title;
         if(req.query.director)query.director = req.query.director;
         if(req.query.genre)query.genre = req.query.genre;
-        if(req.query.year)query.year = req.query.year;    const movie = await Movie.find(query);
+        if(req.query.year)query.year = req.query.year;
+    const movie = await Movie.find(query);
     res.json(movie);
     }
 
