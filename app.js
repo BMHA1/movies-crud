@@ -4,8 +4,7 @@ const app = express();
 const jwt = require('jsonwebtoken');
 const routingMovie = require('./components/movie/router.js')
 const routingUser = require('./components/user/router.js')
-const ObjectID = require('mongodb').ObjectID
-const connection = require('/connection.js')
+const connection = require('./connection.js')
 
 connection()
 

@@ -19,6 +19,7 @@ Ambas contienen su propia carpeta de controller, model y router, para así ajust
 - Express
 - MongoDB
 - Mongoose
+- Postman
 
 ### HOW IT WORKS (CÓMO FUNCIONA)
 
@@ -31,3 +32,7 @@ module.exports.createMovie = async (req, res) => {
 }
 
 ```
+
+### VISTA EN POSTMAN
+
+Incluir fotos de como se ve.
