@@ -14,7 +14,10 @@ module.exports.getMovieCollection = (req, res) => res.json(Movie);
 
 // Método para buscar una película por título.
 
-module.exports.getMovieByTitle = (req, res) => res.json(req.param.title)
+module.exports.getMovieByTitle = (req, res) => {
+    const movie = new Movie(req.param.title);
+    res.json(movie)
+    }
 
 // Método para buscar película por ID.
 

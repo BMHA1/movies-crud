@@ -14,3 +14,5 @@ module.exports.getUserById = async (req, res) => {
     const data = await User.find({_id: req.param.id});
 }
 
+// LOGIN: Buscar el usuario por ID, comparar TOKEN y devolver si es incorrecto.
+// const login = (req, res) => {const data = await User.find({})}
