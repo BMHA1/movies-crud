@@ -8,6 +8,14 @@ module.exports.createUser = async (req, res) => {
     res.json(user);
 }
 
+// Método para buscar todos usuarios.
+
+module.exports.getUserCollection = async (req, res) => {
+    const query = {}
+    const user = await User.find(query);
+    res.json(user);
+}
+
 // Método para buscar un usuario por ID.
 
 module.exports.getUserById = async (req, res) => {
