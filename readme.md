@@ -36,3 +36,19 @@ module.exports.createMovie = async (req, res) => {
 ### VISTA EN POSTMAN
 
 Incluir fotos de como se ve.
+
+### ÁRBOL DE ARCHIVOS
+
+```tree
+
+|-- _components
+            |-- movie
+                |-- controller.js
+                |-- model.js
+                |-- router.js
+            |-- user
+                |-- controller.js
+                |-- model.js
+                |-- router.js
+
+````
