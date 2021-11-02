@@ -1,3 +1,5 @@
+const { query } = require('express');
+const { model } = require('mongoose');
 const Movie = require('./model');
 
 // Método para crear una película en la BBDD.
@@ -14,15 +16,17 @@ module.exports.getMovieCollection = (req, res) => res.json(Movie);
 
 // Método para buscar una película por título.
 
-module.exports.getMovieByTitle = (req, res) => {
-    const movie = new Movie(req.param.title);
+module.exports.getMovieByTitle = async (req, res) => {
+    const query = {};
+    if(req.query.title)query.title = req.query.title;
+    const movie = await Movie.find(query);
     res.json(movie);
     }
 
 // Método para buscar película por ID.
 
 module.exports.getMovieById = async (req, res) => {
-    const movie = await Movie.find({_id: req.param.ObjectID})
+    const movie = await Movie.findById({_id: req.query.id})
     res.json(movie)
 }
 

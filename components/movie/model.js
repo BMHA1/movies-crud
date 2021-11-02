@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const MovieSchema = new mongoose.Schema({
     title: { type: String },
     director: { type: String },
@@ -7,4 +8,5 @@ const MovieSchema = new mongoose.Schema({
     parental: { type: Number },
     year: { type: Number },
 })
+
 module.exports = mongoose.model('Movie', MovieSchema)
