@@ -12,7 +12,11 @@ module.exports.createMovie = async (req, res) => {
 
 // Método para buscar todas las películas.
 
-module.exports.getMovieCollection = (req, res) => res.json(Movie);
+module.exports.getMovieCollection = async (req, res) => {
+    const query = {};
+    const movie = await Movie.find(query);
+    res.json(movie);
+}
 
 // Método para buscar una película por título.
 
@@ -26,8 +30,8 @@ module.exports.getMovieByTitle = async (req, res) => {
 // Método para buscar película por ID.
 
 module.exports.getMovieById = async (req, res) => {
-    const movie = await Movie.findById({_id: req.query.id})
-    res.json(movie)
+    const search = await Movie.find({_id: req.query.id})
+    res.json(search)
 }
 
 // Método para borrar películas.
