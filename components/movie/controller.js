@@ -13,29 +13,31 @@ module.exports.createMovie = async (req, res) => {
 // Método para buscar todas las películas.
 
 module.exports.getMovieCollection = async (req, res) => {
-    const query = {};
-    const movie = await Movie.find(query);
+    const movie = await Movie.find({});
     res.json(movie);
 }
 
-// Método para buscar una película por título.
+// Método para buscar a través de uno de los valores del documento Movies.
 
-module.exports.getMovieByTitle = async (req, res) => {
+module.exports.getMovieByKey = async (req, res) => {
     const query = {};
-    if(req.query.title)query.title = req.query.title;
-    const movie = await Movie.find(query);
+        if(req.query.title)query.title = req.query.title;
+        if(req.query.director)query.director = req.query.director;
+        if(req.query.genre)query.genre = req.query.genre;
+        if(req.query.year)query.year = req.query.year;    const movie = await Movie.find(query);
     res.json(movie);
     }
 
 // Método para buscar película por ID.
 
-module.exports.getMovieById = async (req, res) => {    const movie = await Movie.findById({_id: req.params.id})
+module.exports.getMovieById = async (req, res) => {
+    const movie = await Movie.findById({_id: req.params.id})
     res.json(movie)
 }
 
-// Método para borrar películas.
+// Método para borrar películas. a través del ID.
 
-// module.exports.deleteMovie = async (req, res) => {
-//         await movie.splice({req.query.title}, 1)
-//         res.json({movie : Movie})
-// }
+module.exports.deleteMovie = async (req, res) => {
+    const movie = await Movie.findByIdAndDelete({_id: req.params.id})
+    res.json({movie : Movie})
+}

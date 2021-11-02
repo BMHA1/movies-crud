@@ -23,6 +23,10 @@ Ambas contienen su propia carpeta de controller, model y router, para así ajust
 
 ### HOW IT WORKS (CÓMO FUNCIONA)
 
+Ambas BBDD tienen que tener un CRUD.
+
+Para el punto de crear tenemos en ambas este tipo de código:
+
 ```javascript
 
 module.exports.createMovie = async (req, res) => {
@@ -33,6 +37,22 @@ module.exports.createMovie = async (req, res) => {
 
 ```
 
+Para las búsquedas, tenemos en ambos una búsqueda general y una búsqueda por ID. En ambos, también podemos buscar por diferentes valores.
+
+En las búsquedas se usan los RegEx para no limitar al valor exacto de las claves dichas búsquedas.
+
+```javascript
+
+module.exports.createMovie = async (req, res) => {
+    const movie = new Movie(req.body);
+    await movie.save();
+    res.json(movie);
+}
+
+```
+
+
+
 ### VISTA EN POSTMAN
 
 Incluir fotos de como se ve.
@@ -41,14 +61,31 @@ Incluir fotos de como se ve.
 
 ```tree
 
-|-- _components
-            |-- movie
-                |-- controller.js
-                |-- model.js
-                |-- router.js
-            |-- user
-                |-- controller.js
-                |-- model.js
-                |-- router.js
+├── components
+|       ├── movie
+|       |   ├── controller.js
+|       |   ├── model.js
+|       |   └── router.js
+|       └── user
+|           ├── controller.js
+|           ├── model.js
+|           └── router.js
+├── node_modules
+|
+├── package-lock.json
+|
+├── package.json
+|
+├── app.js
+|
+├── connection.js
+|
+├── middleware.js
+|
+├── .env
+|
+├── .gitignore
+|
+└── readme.md
 
 ````
